@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">视频云播放</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    
+    
+    <string name="buffering">缓冲中</string>
+
+    <string name="mediacontroller_play_pause">Play/Pause</string>
+    <string name="_drawable_mediacontroller_mute02">\@drawable/mediacontroller_mute02</string>
+    
+    <string name="player_option">播 放 选 项</string>
+    <string name="player_about">关 于</string>
+    <string name="about_nelp_demo">LivePlayer Demo</string>
+
+    <string name="about_nelp_demo_version_name_key">about_nelp_demo_version_name_key</string>
+    <string name="about_nelp_demo_version_name">Version Name</string>
+
+    <string name="about_nelp_demo_version_code_key">about_nelp_demo_version_code_key</string>
+    <string name="about_nelp_demo_version_code">Version Code</string>
+
+    <string name="about_nelp_demo_build_date_key">about_nelp_demo_build_date_key</string>
+    <string name="about_nelp_demo_build_date">Build Date</string>
+
+
+    <string name="about_nelp_demo_git_revision_key">about_nelp_demo_git_revision_key</string>
+    <string name="about_nelp_demo_git_revision">Git Revision</string>
+</resources>

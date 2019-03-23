@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/play_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:layout_marginLeft="0.0dip"
+        android:layout_marginRight="0.0dip"
+        android:layout_marginTop="0.0dip"
+        android:background="@drawable/nemediacontroller_bg">
+
+        <ImageButton
+            android:id="@+id/player_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="7dip"
+            android:src="@drawable/ic_play_exit" />
+
+        <TextView
+            android:id="@+id/file_name"
+            style="@style/MediaController_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:gravity="center"
+            android:maxWidth="200dip"
+            android:singleLine="true" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/buffering_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:text="@string/buffering"
+            android:textColor="#FFFFFFFF"
+            android:textSize="13dp" />
+
+        <ProgressBar
+            style="@android:style/Widget.ProgressBar.Large"
+            android:layout_width="50dip"
+            android:layout_height="50dip" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/audio_remind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"
+        android:layout_gravity="center"
+        android:scaleType="fitCenter"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:src="@drawable/audio_remind" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+
+
+        <RelativeLayout
+            android:background="@drawable/nemediacontroller_bg"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:id="@+id/mediacontroller_play_pause"
+                android:layout_width="20dip"
+                android:layout_height="20dip"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dip" />
+
+            <TextView
+                android:id="@+id/mediacontroller_time_current"
+                style="@style/MediaController_Text"
+                android:layout_width="60dip"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/mediacontroller_play_pause"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:textSize="13dp"
+                android:layout_marginLeft="10dp" />
+
+            <SeekBar
+                android:id="@+id/mediacontroller_seekbar"
+                style="@style/MediaController_SeekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/mediacontroller_time_current"
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="266dp"
+                android:focusable="true"
+                android:max="100" />
+
+            <TextView
+                android:id="@+id/mediacontroller_time_total"
+                style="@style/MediaController_Text"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:layout_toLeftOf="@+id/video_player_mute"
+                android:layout_marginRight="30dp"
+                android:textSize="13dp" />
+
+
+            <ImageView
+                android:id="@+id/video_player_mute"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/snapShot"
+                android:layout_marginRight="45dp"
+                android:src="@drawable/nemediacontroller_mute02" />
+
+            <ImageView
+                android:id="@+id/snapShot"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/video_player_scale"
+                android:layout_marginRight="43dp"
+                android:focusable="true"
+                android:src="@drawable/nemediacontroller_takesnap" />
+
+            <ImageView
+                android:id="@+id/video_player_scale"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:gravity="right"
+                android:layout_marginRight="28dp"
+                android:focusable="true"
+                android:src="@drawable/nemediacontroller_scale02" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</RelativeLayout>

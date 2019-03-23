@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/about_nelp_demo">
+
+        <Preference
+            android:key="@string/about_nelp_demo_version_name_key"
+            android:title="@string/about_nelp_demo_version_name" />
+
+        <Preference
+            android:key="@string/about_nelp_demo_version_code_key"
+            android:title="@string/about_nelp_demo_version_code" />
+
+        <Preference
+            android:key="@string/about_nelp_demo_build_date_key"
+            android:title="@string/about_nelp_demo_build_date" />
+
+      <Preference
+            android:key="@string/about_nelp_demo_git_revision_key"
+            android:title="@string/about_nelp_demo_git_revision" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".activity.base.LiveActivity">
+
+    <FrameLayout
+        android:id="@+id/render_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.netease.neliveplayer.playerkit.sdk.view.AdvanceTextureView
+            android:id="@+id/live_texture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+    <include
+        android:id="@+id/player_control_layout"
+        layout="@layout/player_control_layout" />
+
+
+</RelativeLayout>

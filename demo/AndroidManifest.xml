@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.netease.neliveplayer.demo"
+   >
+
+    <!-- 权限声明 -->
+    <!-- 允许程序打开网络套接字 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 允许定位权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 允许程序向外部存储设备写数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 允许程序向外部存储设备读数据 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 允许程序获取网络相关信息 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 允许程序获取Wifi网络状态信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 允许程序使用设备的camera -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 允许程序获得设备信息 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+
+    <application
+        android:allowBackup="true"
+        android:name="com.netease.neliveplayer.demo.application.CrashApplication"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.netease.neliveplayer.demo.activity.base.WelcomeActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.netease.neliveplayer.demo.activity.base.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            />
+        <activity
+            android:name=".activity.base.LiveActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.base.VodActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.advance.ShortVideoTextureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity
+            android:name=".activity.advance.ShortVideoSurfaceActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>     <activity
+        android:name="com.netease.neliveplayer.demo.activity.base.QRCodeScanActivity"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait"
+        android:configChanges="orientation|keyboardHidden|screenSize">
+    </activity>
+        <activity android:name="com.netease.neliveplayer.demo.activity.base.SettingActivity" />
+
+        <!-- 申明本地电话状态（通话状态）的广播接收器，第三方APP集成时，如果需要在App中处理播放器与本地电话的交互请加上此接收器 -->
+        <!-- receiver中的com.netease.neliveplayer.demo请替换为自己的包名 -->
+        <receiver android:name="com.netease.neliveplayer.demo.receiver.IncomingCallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

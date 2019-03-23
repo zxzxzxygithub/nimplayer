@@ -1,0 +1,95 @@
+apply plugin: 'com.android.application'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':playerkit')
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation(name:'zxing-1.8.4', ext:'aar')
+    implementation(name:'barcodescanner-core-1.8.4', ext:'aar')
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+}
+
+def static getGitVersion() {
+    try {
+        return 'git rev-parse --short HEAD'.execute().text.trim()
+    } catch (Throwable th) {
+        th.printStackTrace()
+        return ""
+    }
+}
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        applicationId "com.netease.neliveplayer"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 54
+        versionName "2.3.1"
+
+        // Enabling multidex support.
+        multiDexEnabled true
+        //multiDexKeepProguard file('multiDexKeep.pro')
+        resConfigs "en"
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters   'armeabi', 'x86', 'armeabi-v7a', 'arm64-v8a'
+        }
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        buildConfigField "String", "GIT_REVISION", "\"${getGitVersion()}\""
+        buildConfigField "String", "BUILD_DATE", "\"${new Date().toLocaleString()}\""
+
+
+        ndk {
+//            abiFilters  "armeabi"
+            abiFilters  "armeabi-v7a"
+        }
+    }
+
+    repositories {  //本地aar方式
+        flatDir {
+            dirs 'libs' //this way we can find the .aar file in libs folder
+        }
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']
+        }
+
+        // Move the tests to tests/java, tests/res, etc...
+        androidTest.setRoot('tests')
+
+        // Move the build types to build-types/<type>
+        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
+        // This moves them out of them default location under src/<type>/... which would
+        // conflict with src/ being used by the main source set.
+        // Adding new build types or product flavors should be accompanied
+        // by a similar customization.
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+}
